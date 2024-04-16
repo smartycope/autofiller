@@ -1,4 +1,6 @@
 # autofiller
+[![PyPI - Version](https://img.shields.io/pypi/v/autofiller.svg)](https://pypi.org/project/autofiller)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/autofiller.svg)](https://pypi.org/project/autofiller)
 
 A small popup to input various random data for you.
 
@@ -14,9 +16,6 @@ python -m autofiller --deamon --modifier ctrl --key 5
 # or
 python -m autofiller -d -m none -k f3
 ```
-
-[![PyPI - Version](https://img.shields.io/pypi/v/autofiller.svg)](https://pypi.org/project/autofiller)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/autofiller.svg)](https://pypi.org/project/autofiller)
 
 -----
 
