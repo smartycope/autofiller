@@ -1,0 +1,85 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autofiller"
+dynamic = ["version"]
+description = 'A small popup to input various random data for you'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Copeland Carter", email = "smartycope@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "pynput",
+    "PySide6",
+    "PySideSix-Frameless-Window",
+    "random_name",
+    "ezregex",
+]
+
+[project.urls]
+Documentation = "https://github.com/smartycope/autofiller#readme"
+Issues = "https://github.com/smartycope/autofiller/issues"
+Source = "https://github.com/smartycope/autofiller"
+
+[tool.hatch.version]
+path = "src/autofiller/__init__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+]
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args    :tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "test-cov",
+  "cov-report",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.types]
+dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/autofiller tests}"
+
+[tool.coverage.run]
+source_pkgs = ["autofiller", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/autofiller/__init__.py",
+]
+
+[tool.coverage.paths]
+autofiller = ["src/autofiller", "*/autofiller/src/autofiller"]
+tests = ["tests", "*/autofiller/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
