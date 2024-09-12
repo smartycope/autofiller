@@ -98,14 +98,15 @@ class Window(FramelessWindow):
     def add_random(self, type):
         match type:
             case 'text':
-                regex = (er.match_range(3, 5, er.word_char) + ' ') * randint(1, 5)
-                self.give(regex.invert())
+                regex = (er.match_range(3, 5, er.word_char) + ' ') * randint(2, 5)
+                self.give(regex.invert()[:-1])
             case 'name':
                 self.give(random_name.generate_name())
             case 'json':
                 self.give('{ "TODO": "Random JSON" }')
             case 'email':
-                self.give(er.email.invert())
+                regex = er.word + er.opt('-' + er.word) + '@' + er.word + '.' + er.anyof('com', 'net', 'org')
+                self.give(regex.invert())
 
 app = QApplication(sys.argv)
 window = Window()
