@@ -1,0 +1,22 @@
+{
+    "f: Fill": {
+        "n: name": "your name",
+        "e: email": "your email",
+        "p: phone": "your phone number",
+        "a: address": "your address"
+    },
+    "s: Sequence": {
+        "k: show desktop keyboard": [
+            "meta + d"
+        ],
+        "m: show desktop mouse": [
+            [0, 0]
+        ]
+    },
+    "r: Random": {
+        "n: name": "random_name()",
+        "e: email": "random_email()",
+        "p: phone": "random_phone()",
+        "a: address": "random_address()"
+    }
+}
